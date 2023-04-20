@@ -2,17 +2,23 @@ package org.sid.congeservice;
 
 import org.sid.congeservice.entities.Conge;
 import org.sid.congeservice.enums.EtatConge;
+import org.sid.congeservice.enums.TypeConge;
+import org.sid.congeservice.model.Employee;
 import org.sid.congeservice.repositories.CongeRepository;
+import org.sid.congeservice.services.EmployeeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication
+@Import(AppConfig.class)
 public class CongeServiceApplication {
 
 	private final CongeRepository congeRepository;
@@ -26,29 +32,16 @@ public class CongeServiceApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(CongeRepository congeRepository,
-											   RepositoryRestConfiguration repositoryRestConfiguration){
+	public CommandLineRunner commandLineRunner(CongeRepository congeRepository, EmployeeService employeeService) {
 		return args -> {
-			repositoryRestConfiguration.exposeIdsFor(Conge.class);
-			congeRepository.saveAll(
-					List.of(
-							Conge.builder().type("Congé sabatique").
-									dateDebutConge(new Date(23/9/2022)).
-									dateFinConge(new Date(23/9/2023)).
-									etatDemandeConge(EtatConge.CONGE_ACCORDE).build(),
-							Conge.builder().type("Congé de maternité").
-									//dateDebutConge().
-									//dateFinConge().
-									etatDemandeConge(EtatConge.DEMANDE_REFUSEE).build(),
-							Conge.builder().type("Congé de soins médicaux").
-									//dateDebutConge().
-									//dateFinConge().
-									etatDemandeConge(EtatConge.DEMANDE_EN_ATTENTE).build()
-					)
-			);
-			congeRepository.findAll().forEach(c->{
-				System.out.println(c);
-			});
+//			Long employeeId = 1L;
+//			Conge conge = new Conge();
+//			conge.setEmployeeId(employeeId);
+//			conge.setDateDebutConge(new Date());
+//			conge.setDateFinConge(new Date());
+//			conge.setEtatDemandeConge(EtatConge.CONGE_ACCORDE);
+//			conge.setType(TypeConge.CONGE_MALADIE);
+//			Conge savedConge = congeRepository.save(conge);
 		};
 	}
 }

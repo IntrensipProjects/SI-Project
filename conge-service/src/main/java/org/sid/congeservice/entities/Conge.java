@@ -5,11 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.sid.congeservice.enums.EtatConge;
+import org.sid.congeservice.enums.TypeConge;
+import org.sid.congeservice.model.Employee;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,10 +17,16 @@ import java.util.Date;
 public class Conge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-    private String type;
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    private TypeConge type;
     private Date dateDebutConge;
     private Date dateFinConge;
+    @Column(name = "etatDemandeConge")
+    @Enumerated(EnumType.STRING)
     private EtatConge etatDemandeConge;
+    private Long employeeId;
+    @Transient
+    private Employee employee;
 }
