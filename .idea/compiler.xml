@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SI-HGS" />
+        <module name="stagiaire-service" />
         <module name="discovery-service" />
         <module name="gateway" />
         <module name="employee-service" />
