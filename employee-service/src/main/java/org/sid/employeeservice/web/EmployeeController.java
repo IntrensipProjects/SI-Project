@@ -1,4 +1,4 @@
-package org.sid.employeeservice.Controllers;
+package org.sid.employeeservice.web;
 
 import org.sid.employeeservice.Entities.Employee;
 import org.sid.employeeservice.Repositories.EmployeeRepository;
@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
 public class EmployeeController {
 
     @Autowired
