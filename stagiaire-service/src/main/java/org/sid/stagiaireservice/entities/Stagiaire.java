@@ -25,8 +25,11 @@ public class Stagiaire {
     private String adresse;
     private String CNE;
     private String nomUniversite;
+    private String classe;
     private String typeStage;
     private Date dateDebutStage;
     private Date dateFinStage;
     private String conventionStage;
+    private String nomEncadrantInterne;
+    private String nomEncadrantExterne;
 }

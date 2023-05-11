@@ -8,10 +8,10 @@ import java.util.Date;
 public interface StagiaireProjection {
 
     public String getNom();
-    public String getEmail();
-    public String getCNE();
+    public Long getClasse();
     public String getNomUniversite();
-    public Date getDateDebutStage();
-    public Date getDateFinStage();
-    public String getConventionStage();
+    public String getTypeStage();
+    public String getNomEncadrantInterne();
+    public String getNomEncadrantExterne();
+
 }

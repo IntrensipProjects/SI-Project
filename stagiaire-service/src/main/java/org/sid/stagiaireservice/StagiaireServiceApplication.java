@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
-import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication
@@ -36,29 +35,39 @@ public class StagiaireServiceApplication {
                                     adresse("Sidi Maârrouf, Casablanca").
                                     CNE("ZR34ODB").
                                     nomUniversite("EMSI").
+                                    classe("1ACP").
                                     typeStage("Stage d'observation").
                                     //dateDebutStage().
                                     //dateFinStage().
-                                    conventionStage("").build(),
+                                    conventionStage("").
+                                    nomEncadrantInterne("Youssef Salah").
+                                    nomEncadrantExterne("Nicolas Legrand").build(),
+
                             Stagiaire.builder().nom("Ayoub Hassan").
                                     email("ayoubhassan121@gmail.com").
                                     //dateNaissance().
                                             adresse("Derb Ghallef, Casablanca").
                                     CNE("FR437Z4").
                                     nomUniversite("ISGA").
+                                    classe("2ACI").
                                     typeStage("Stage en alternance").
                                     //dateDebutStage().
-                                    conventionStage("").build(),
+                                    conventionStage("").
+                                    nomEncadrantInterne("Elliot Paul").
+                                    nomEncadrantExterne("Mary Stewart").build(),
                             Stagiaire.builder().nom("Olivier Descartes").
                                     email("olidescartes@icloud.com").
                                     //dateNaissance().
                                     adresse("Belvédère").
                                     CNE("HU492GT").
                                     nomUniversite("HEM").
+                                    classe("1ACI").
                                     typeStage("Stage d'application").
                                     //dateDebutStage().
                                     //dateFinStage().
-                                    conventionStage("").build()
+                                    conventionStage("").
+                                    nomEncadrantInterne("Youssef Salah").
+                                    nomEncadrantExterne("Helène Poussin").build()
                     )
             );
             stagiaireRepository.findAll().forEach(s->{
