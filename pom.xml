@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>conge-service</module>
-        <module>stagiaire-service</module>
+        <module>pret-service</module>
         <module>stagiaire-service</module>
     </modules>
 
