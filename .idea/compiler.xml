@@ -8,11 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SI-HGS" />
+        <module name="pret-service" />
         <module name="discovery-service" />
         <module name="gateway" />
         <module name="employee-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="conge-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -20,6 +24,7 @@
       <module name="document-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="pret-service" options="-parameters" />
     </option>
   </component>
 </project>
