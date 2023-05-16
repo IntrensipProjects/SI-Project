@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="conge-service" />
+        <module name="stagiaire-service" />
         <module name="discovery-service" />
         <module name="gateway" />
         <module name="employee-service" />
@@ -17,7 +18,6 @@
     <bytecodeTargetLevel>
       <module name="conge-service (1) (org.sid)" target="17" />
       <module name="conge-service (2) (org.example)" target="17" />
-      <module name="stagiaire-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -27,6 +27,7 @@
       <module name="discovery-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="stagiaire-service" options="-parameters" />
     </option>
   </component>
 </project>
