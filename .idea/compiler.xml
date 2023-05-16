@@ -11,6 +11,7 @@
         <module name="discovery-service" />
         <module name="gateway" />
         <module name="employee-service" />
+        <module name="document-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
