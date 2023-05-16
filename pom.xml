@@ -11,6 +11,7 @@
     <modules>
         <module>conge-service</module>
         <module>pret-service</module>
+        <module>stagiaire-service</module>
     </modules>
 
     <properties>
