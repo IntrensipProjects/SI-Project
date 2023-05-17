@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="conge-service" />
         <module name="stagiaire-service" />
+        <module name="pret-service" />
         <module name="discovery-service" />
         <module name="gateway" />
         <module name="employee-service" />
@@ -25,8 +26,10 @@
       <module name="conge-service" options="-parameters" />
       <module name="conge-service (1) (org.sid)" options="-parameters" />
       <module name="discovery-service" options="-parameters" />
+      <module name="document-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="pret-service" options="-parameters" />
       <module name="stagiaire-service" options="-parameters" />
     </option>
   </component>
