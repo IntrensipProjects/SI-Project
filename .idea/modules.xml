@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-    <component name="ProjectModuleManager">
-        <modules>
-            <module fileurl="file://$PROJECT_DIR$/SI-HGS.iml" filepath="$PROJECT_DIR$/SI-HGS.iml" />
-            <module fileurl="file://$PROJECT_DIR$/projet-frontend/projet-frontend.iml" filepath="$PROJECT_DIR$/projet-frontend/projet-frontend.iml" />
-            <module fileurl="file://$PROJECT_DIR$/react-frontend.iml" filepath="$PROJECT_DIR$/react-frontend.iml" />
-        </modules>
-    </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SI-HGS.iml" filepath="$PROJECT_DIR$/SI-HGS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projet-frontend/projet-frontend.iml" filepath="$PROJECT_DIR$/projet-frontend/projet-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/react-frontend.iml" filepath="$PROJECT_DIR$/react-frontend.iml" />
+    </modules>
+  </component>
 </project>
