@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from "axios";
 import "./SignupComponent.css";
 import {Link} from "react-router-dom";
 import {FaEye, FaEyeSlash} from "react-icons/fa";
@@ -15,9 +16,27 @@ function SignupComponent(){
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
+        try {
+            const response = await axios.post('http://localhost:8080/v1/clients/?pageNo=0&pageSize=2', {
+                fullName,
+                email,
+                password,
+                jobTitle,
+                phoneNumber
+            });
+
+            // Handle the response from the API
+            console.log(response.data);
+
+            // Perform necessary actions after successful signup
+            console.log('Signup successful');
+
+        } catch (error) {
+            console.error(error);
+        }
     // Reset form fields
     setFullName("");
     setEmail("");
@@ -104,7 +123,7 @@ function SignupComponent(){
                     <button type="submit" disabled={!email || !password || !fullName || !jobTitle ||!phoneNumber}
                             className="btn-signup">NEXT</button>
                     </Link>
-                    <div className="login"><strong>Already have an account?</strong> <Link to="/login">Login</Link></div>
+                    <div className="login"><strong>Already have an account?</strong> <Link to="/login" className="thelink">Login</Link></div>
             </form>
                 </div>
         </>

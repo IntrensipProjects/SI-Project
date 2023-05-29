@@ -1,5 +1,6 @@
 import './LoginComponent.css';
 import React, {useState} from "react";
+import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from "../../../../assets/images/logo.png";
 import {Link} from "react-router-dom";
@@ -8,10 +9,28 @@ function LoginComponent(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        // Add your login logic here
+
+        try {
+            const response = await axios.post('http://localhost:8080/v1/clients/?pageNo=0&pageSize=2', {
+                email,
+                password
+            });
+
+            // Check if the login was successful based on the response from the API
+            if (response.data.success) {
+                // User exists in the API, perform the necessary actions
+                console.log('Login successful');
+            } else {
+                // User does not exist or invalid credentials, handle the error
+                console.log('Invalid email or password');
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
+
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -19,7 +38,7 @@ function LoginComponent(){
 
     return(
         <div className="container">
-            <form className="login-form">
+            <form onSubmit={onSubmit} className="login-form">
                     <img src={logo} alt="Logo" className="logo" />
                 <div className="email-input">
                     <input
@@ -50,7 +69,7 @@ function LoginComponent(){
                 <Link to="/home">
                     <button type="submit" disabled={!email || !password} className="btn-login">Login</button>
                 </Link>
-                    <div className="signUp"><strong>No Account?</strong> <Link to="/signup">Signup</Link>
+                    <div className="signUp"><strong>No Account?</strong> <Link to="/signup" className="linkofpage">Signup</Link>
                     </div>
                 </form>
         </div>

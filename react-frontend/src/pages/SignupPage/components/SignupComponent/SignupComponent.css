@@ -86,7 +86,7 @@ input[type="text"] {
     margin-top: 20px;
     margin-left: 10px;
 }
-a{
+.thelink{
     margin-left: 15px;
     text-decoration: underline;
     color: #455297;

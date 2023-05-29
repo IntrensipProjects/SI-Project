@@ -92,8 +92,8 @@ input[type="text"] {
     margin-top: 20px;
     margin-left: 60px;
 }
-a{
-    margin-left: 0px;
+.linkofpage{
+    margin-left: 15px;
     text-decoration: underline;
     color: #455297;
     cursor: pointer;
