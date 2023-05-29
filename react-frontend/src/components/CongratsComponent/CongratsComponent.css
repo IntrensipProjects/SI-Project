@@ -1,0 +1,61 @@
+.congratulation-container {
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+h1 {
+    position: absolute;
+    width: 335px;
+    height: 58px;
+    left: 500px;
+    top: 160px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    /* identical to box height */
+    text-align: center;
+    color: #455297;
+}
+
+img{
+    position: absolute;
+    width: 48px;
+    height: 49px;
+    left: 850px;
+    top: 200px;
+}
+
+p {
+    position: absolute;
+    width: 482px;
+    height: 31px;
+    left: 430px;
+    top: 250px;
+
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 31px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.btn-start {
+    position: absolute;
+    display: block;
+    width: 381px;
+    height: 53px;
+    left: 496px;
+    top: 380px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #455297;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
