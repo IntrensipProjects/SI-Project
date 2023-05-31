@@ -20,7 +20,7 @@ function SignupComponent(){
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8080/v1/clients/?pageNo=0&pageSize=2', {
+            const response = await axios.post('http://localhost:1700/users', {
                 fullName,
                 email,
                 password,
@@ -51,16 +51,14 @@ function SignupComponent(){
                 src={logo}
                 alt="Logo"
             />
-            <div className="container">
+            <div className="signup-container">
                 <form onSubmit={handleSubmit} className="signup-form">
-                    <br/>
                     <div>
                     <h3>Welcome to HGS System
      where you can manage all human resources
                     of the enterprise</h3>
                     <p className="sentence">Please fill in your information to set up your profile...</p>
                   </div>
-                    <br/>
                     <div className="field">
                     <input
                         type="text"
@@ -118,7 +116,6 @@ function SignupComponent(){
                         required
                     />
                     </div>
-                    <br/>
                     <Link to="/congrats">
                     <button type="submit" disabled={!email || !password || !fullName || !jobTitle ||!phoneNumber}
                             className="btn-signup">NEXT</button>

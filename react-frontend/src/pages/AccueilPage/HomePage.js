@@ -1,10 +1,11 @@
 import React from "react";
+import SideBarComponent from "../../components/SideBarComponent/SideBarComponent";
 
 function HomePage(){
 
     return(
         <>
-            <p>test</p>
+            <SideBarComponent/>
         </>
     );
 }

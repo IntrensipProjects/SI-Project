@@ -13,7 +13,7 @@ function LoginComponent(){
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8080/v1/clients/?pageNo=0&pageSize=2', {
+            const response = await axios.get('http://localhost:1700/users', {
                 email,
                 password
             });
@@ -37,7 +37,7 @@ function LoginComponent(){
     };
 
     return(
-        <div className="container">
+        <div className="login-container">
             <form onSubmit={onSubmit} className="login-form">
                     <img src={logo} alt="Logo" className="logo" />
                 <div className="email-input">
