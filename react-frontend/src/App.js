@@ -4,8 +4,10 @@ import {Routes,Route} from "react-router-dom";
 import SignupComponent from "./pages/SignupPage/components/SignupComponent/SignupComponent";
 import HomePage from "./pages/AccueilPage/HomePage";
 import CongratsPage from "./pages/CongratsPage";
+import SideBarComponent from "./components/SideBarComponent/SideBarComponent";
+
 function App() {
-  return (
+    return (
       <>
                 <Routes>
                     <Route path="/" element={<LoginComponent/>} />
@@ -13,7 +15,6 @@ function App() {
                     <Route path="/login" element={<LoginComponent/>} />
                     <Route path="/congrats" element={<CongratsPage/>} />
                     <Route path="/home" element={<HomePage/>} />
-
                 </Routes>
       </>
   );

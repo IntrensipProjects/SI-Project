@@ -1,0 +1,36 @@
+
+.sidebar-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    margin-top: 60px;
+    width: 260px;
+    background-color: white;
+    transition: width 0.3s;
+    box-shadow: white;
+}
+
+.sidebar.collapsed {
+    width: 90px;
+    box-shadow: white;
+}
+
+.collapse-button {
+    position: absolute;
+    margin-top: 565px;
+    margin-left: 80px;
+    border: none;
+    width: 50px;
+}
+
+.collapse-button.collapsed {
+    position: absolute;
+    margin-left: 20px;
+    border: none;
+}
+.anticon.anticon-arrow-left{
+
+}
+

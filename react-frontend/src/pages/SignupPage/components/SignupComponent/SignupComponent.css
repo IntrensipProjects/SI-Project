@@ -1,4 +1,4 @@
-body{
+.signup-container {
     background-image: url("../../../../assets/images/background.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -6,13 +6,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 89vh;
+    height: 99vh;
     margin: 0;
-}
-.container {
-    position: relative;
-    justify-content: center;
-    align-items: center;
 }
 .signup-image {
     position: absolute;
@@ -25,7 +20,7 @@ body{
 
 .signup-form {
     max-width: 300px;
-    width: 120%;
+    width: 130%;
     padding: 20px;
     justify-content: center;
     align-items: center;
@@ -94,21 +89,23 @@ a{
 }
 
 .sentence{
-    top: 28%;
-    bottom: 0;
-    right: 0px;
-    left: 20px;
+    position: relative;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    margin-bottom: 0px;
+    margin-bottom: 7px;
     width: 290px;
     font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
     font-size: 13px;
-    line-height: 136.5%;
+    /*line-height: 136.5%;*/
     color: #455297;
 }
 h3{
     left: 373px;
-    top: 115px;
+    margin-bottom: 7px;
+    margin-top: 0px;
+    top: 100px;
     font-size: 22px;
     line-height: 35px;
     font-family: 'Lato';

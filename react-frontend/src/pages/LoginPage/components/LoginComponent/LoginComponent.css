@@ -1,18 +1,11 @@
-body{
-    /*background-color: #DDE4F1;*/
+.login-container {
     background-image: url("../../../../assets/images/background.png");
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 89vh;
-}
-.container {
-    position: relative;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
 }
 /* logo HGS SYSTEM */
 .logo {
@@ -81,6 +74,7 @@ input[type="text"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 0px;
 }
 
 .btn-login:disabled {
