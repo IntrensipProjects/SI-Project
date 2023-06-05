@@ -34,26 +34,26 @@
     margin-bottom: 15px;
 }
 .input{
-    width: 90%;
+    width: 100%;
 }
 
 .toggle-password {
     position: absolute;
-    top: 50%;
-    right: 25px;
+    top: 40%;
+    right: 20px;
     transform: translateY(-50%);
     cursor: pointer;
 }
 
 .input[type="password"] {
-    width: 90%;
+    width: 100%;
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 input[type="text"] {
-    width: 90%;
+    width: 100%;
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;
@@ -62,7 +62,7 @@ input[type="text"] {
 
 .btn-signup {
     display: block;
-    width: 96%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     background-color: #455297;
@@ -95,7 +95,7 @@ a{
     left: 0px;
     margin-bottom: 0px;
     margin-bottom: 7px;
-    width: 290px;
+    width: 280px;
     font-family: 'Lato';
     font-size: 13px;
     /*line-height: 136.5%;*/
