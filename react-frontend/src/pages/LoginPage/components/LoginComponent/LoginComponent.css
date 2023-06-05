@@ -12,7 +12,7 @@
     display: flex;
     position: static;
     margin-bottom: 30px;
-    margin-left: 40px;
+    margin-left: 30px;
     width: 210px;
     height: 140px;
     border-radius: 20px;
@@ -39,15 +39,15 @@
 
 .toggle-pass {
     position: absolute;
-    top: 40%;
-    right: 25px;
+    top: 35%;
+    right: 20px;
     transform: translateY(-50%);
     cursor: pointer;
 }
 
 input[type="email"],
 input[type="password"] {
-    width: 90%;
+    width: 100%;
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;
