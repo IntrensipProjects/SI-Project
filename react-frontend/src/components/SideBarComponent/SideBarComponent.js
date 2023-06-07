@@ -26,19 +26,31 @@ const MenuItems = [
     getItem('Loan Management','4',<DollarOutlined />,privateRoutes.loanManagement.path),
     getItem('Documents','5',<FolderOpenOutlined />,privateRoutes.documents.path)
 ];
-function SideBarComponent(){
+function SideBarComponent({ defaultSelectedKeys }) {
     const [collapsed, setCollapsed] = useState(false);
+    const [selectedKeys, setSelectedKeys] = useState(defaultSelectedKeys);
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
+    };
+
+    const handleMenuClick = ({ key }) => {
+        setSelectedKeys([key]);
     };
     return (
         <div className="sidebar-container">
             <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
-            <Menu
-                mode="inline"
-                inlineCollapsed={collapsed}
-                items={MenuItems}
-            />
+                <Menu
+                    mode="inline"
+                    inlineCollapsed={collapsed}
+                    selectedKeys={selectedKeys}
+                    onClick={handleMenuClick}
+                >
+                    {MenuItems.map(item => (
+                        <Menu.Item key={item.key} icon={item.icon}>
+                            <a href={item.path} className="menu-link">{item.label}</a>
+                        </Menu.Item>
+                    ))}
+                </Menu>
             </div>
             <Button
                 onClick={toggleCollapsed}
