@@ -22,14 +22,10 @@ public class Stagiaire {
     private String nom;
     private String email;
     private Date dateNaissance;
-    private String adresse;
     private String CNE;
+    private String adresse;
     private String nomUniversite;
-    private String classe;
-    private String typeStage;
-    private Date dateDebutStage;
-    private Date dateFinStage;
+    private String niveauUniv;
+    private String durationStage;
     private String conventionStage;
-    private String nomEncadrantInterne;
-    private String nomEncadrantExterne;
 }

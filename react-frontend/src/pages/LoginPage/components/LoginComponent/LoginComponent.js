@@ -3,32 +3,43 @@ import React, {useState} from "react";
 import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from "../../../../assets/images/logo.png";
-import {Link} from "react-router-dom";
+import { Link} from "react-router-dom";
+import {message} from "antd";
 function LoginComponent(){
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const field={
+        WebkitAppearance: 'none',
+        MozAppearance: 'none',
+        appearance: 'none',
+    };
+    const linkofpage={
+        marginLeft:'10px'
+    }
 
     const onSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            const response = await axios.get('http://localhost:1700/users', {
-                email,
-                password
-            });
-
-            // Check if the login was successful based on the response from the API
-            if (response.data.success) {
-                // User exists in the API, perform the necessary actions
-                console.log('Login successful');
+            const response = await axios.post(
+                'http://localhost:8888/USER-SERVICE/users',
+                { email, password }
+            ).then((response) => {
+            message.success('Login successful!');
+            return <Link to="/home" />;
+            })
+            .catch ((err) => {
+            if (!err?.response) {
+                message.error('No Server Response');
+            } else if (err.response?.status === 400) {
+                message.error('Missing Email or Password');
+            } else if (err.response?.status === 401) {
+                message.error('Unauthorized');
             } else {
-                // User does not exist or invalid credentials, handle the error
-                console.log('Invalid email or password');
+                message.error('Login Failed');
             }
-        } catch (error) {
-            console.error(error);
-        }
+            });
+        setEmail("");
+        setPassword("");
     };
 
 
@@ -58,18 +69,20 @@ function LoginComponent(){
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        className="field" />
-                    <span className="toggle-pass" onClick={togglePasswordVisibility}>
-    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                    </span>
+                        style={field} />
+    {/*                <span className="toggle-pass" onClick={togglePasswordVisibility}>*/}
+    {/*{showPassword ?  <FaEye />: <FaEyeSlash />}*/}
+    {/*                </span>*/}
                 </div>
-
+<br/>
                 <div className="forgot-password">Forgot my password?</div>
                 <br/>
+
+                {/*disabled={!email || !password}*/}
                 <Link to="/home">
-                    <button type="submit" disabled={!email || !password} className="btn-login">Login</button>
+                    <button type="submit"   className="btn-login">Login</button>
                 </Link>
-                    <div className="signUp"><strong>No Account?</strong> <Link to="/signup" className="linkofpage">Signup</Link>
+                    <div className="signUp"><strong>No Account?</strong> <Link to="/signup" style={linkofpage}>Signup</Link>
                     </div>
                 </form>
         </div>

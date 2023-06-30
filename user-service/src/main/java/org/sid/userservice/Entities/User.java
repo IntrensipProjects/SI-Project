@@ -19,6 +19,7 @@ public class User {
     public String nomComplet;
     public String typeUser;
     public String email;
+    public String password;
     public  String tel;
 
 

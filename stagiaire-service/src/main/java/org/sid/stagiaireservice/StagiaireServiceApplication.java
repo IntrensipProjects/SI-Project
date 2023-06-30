@@ -35,13 +35,9 @@ public class StagiaireServiceApplication {
                                     adresse("Sidi Maârrouf, Casablanca").
                                     CNE("ZR34ODB").
                                     nomUniversite("EMSI").
-                                    classe("1ACP").
-                                    typeStage("Stage d'observation").
-                                    //dateDebutStage().
-                                    //dateFinStage().
-                                    conventionStage("").
-                                    nomEncadrantInterne("Youssef Salah").
-                                    nomEncadrantExterne("Nicolas Legrand").build(),
+                                    niveauUniv("1ACP").
+                                    durationStage("1 mois").
+                                    conventionStage("").build(),
 
                             Stagiaire.builder().nom("Ayoub Hassan").
                                     email("ayoubhassan121@gmail.com").
@@ -49,25 +45,19 @@ public class StagiaireServiceApplication {
                                             adresse("Derb Ghallef, Casablanca").
                                     CNE("FR437Z4").
                                     nomUniversite("ISGA").
-                                    classe("2ACI").
-                                    typeStage("Stage en alternance").
-                                    //dateDebutStage().
-                                    conventionStage("").
-                                    nomEncadrantInterne("Elliot Paul").
-                                    nomEncadrantExterne("Mary Stewart").build(),
+                                    niveauUniv("2ACI").
+                                    durationStage("2 mois").
+                                    conventionStage("").build(),
+
                             Stagiaire.builder().nom("Olivier Descartes").
                                     email("olidescartes@icloud.com").
                                     //dateNaissance().
                                     adresse("Belvédère").
                                     CNE("HU492GT").
                                     nomUniversite("HEM").
-                                    classe("1ACI").
-                                    typeStage("Stage d'application").
-                                    //dateDebutStage().
-                                    //dateFinStage().
+                                    niveauUniv("1ACI").
                                     conventionStage("").
-                                    nomEncadrantInterne("Youssef Salah").
-                                    nomEncadrantExterne("Helène Poussin").build()
+                                    durationStage("2 mois").build()
                     )
             );
             stagiaireRepository.findAll().forEach(s->{
