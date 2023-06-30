@@ -24,9 +24,9 @@ public class UserServiceApplication {
 
             userRepository.saveAll(
                     List.of(
-                            User.builder().nomComplet("Nouhaila OHAPOUNE")
-                                    .email("n.ohapoune@mundiapolis.ma")
-                                    .tel("0644359316").typeUser("admin").build()
+                            User.builder().nomComplet("Emmanuel Babile")
+                                    .email("e.babile@mundiapolis.ma").password("emmanuel")
+                                    .tel("0633445566").typeUser("admin").build()
 
                     )
             );

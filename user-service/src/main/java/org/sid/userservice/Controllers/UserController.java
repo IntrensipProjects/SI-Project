@@ -43,6 +43,7 @@ public class UserController {
         existingUser.setNomComplet(user.getNomComplet());
         existingUser.setTypeUser(user.getTypeUser());
         existingUser.setEmail(user.getEmail());
+        existingUser.setPassword(user.getPassword());
         existingUser.setTel(user.getTel());
         return userRepository.save(existingUser);
     }

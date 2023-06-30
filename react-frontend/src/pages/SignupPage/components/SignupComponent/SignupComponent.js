@@ -4,6 +4,7 @@ import "./SignupComponent.css";
 import {Link} from "react-router-dom";
 import {FaEye, FaEyeSlash} from "react-icons/fa";
 import logo from '../../../../assets/images/logo.png';
+import {message} from "antd";
 
 function SignupComponent(){
     const [showPassword, setShowPassword] = useState(false);
@@ -13,14 +14,15 @@ function SignupComponent(){
     const [jobTitle, setJobTitle] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+    const thelink={
+        marginLeft:'8px'
     };
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:1700/users', {
+            const response = await axios.post('http://localhost:8888/USER-SERVICE/users', {
                 fullName,
                 email,
                 password,
@@ -31,10 +33,14 @@ function SignupComponent(){
             // Handle the response from the API
             console.log(response.data);
 
+            message.info("Sign up successful!!")
             // Perform necessary actions after successful signup
             console.log('Signup successful');
 
-        } catch (error) {
+            return <Link to="/congrats"/>;
+
+                    }
+        catch (error) {
             console.error(error);
         }
     // Reset form fields
@@ -90,9 +96,6 @@ function SignupComponent(){
                         onChange={(event) => setPassword(event.target.value)}
                         required
                          />
-                    <span className="toggle-password" onClick={togglePasswordVisibility}>
-    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                    </span>
                     </div>
 
                     <div className="field">
@@ -116,11 +119,13 @@ function SignupComponent(){
                         required
                     />
                     </div>
+
                     <Link to="/congrats">
-                    <button type="submit" disabled={!email || !password || !fullName || !jobTitle ||!phoneNumber}
+                        {/*disabled={!email || !password || !fullName || !jobTitle ||!phoneNumber}*/}
+                    <button type="submit"
                             className="btn-signup">NEXT</button>
                     </Link>
-                    <div className="login"><strong>Already have an account?</strong> <Link to="/login" className="thelink">Login</Link></div>
+                    <div className="login"><strong>Already have an account?</strong> <Link to="/login" style={thelink}>Login</Link></div>
             </form>
                 </div>
         </>

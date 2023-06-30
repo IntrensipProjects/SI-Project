@@ -1,13 +1,16 @@
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import SideBarComponent from "../../components/SideBarComponent/SideBarComponent";
-import TableComponent from "../../components/TableComponent/TableComponent";
+import AddIntern from "./components/AddIntern/AddIntern";
+import InternsTable from "./components/InternsTable/InternsTable";
+import SearchBarComponent from "../../components/SearchBarComponent/SearchBarComponent";
 
 function InternsPage(){
     return(
         <>
             <HeaderComponent/>
             <SideBarComponent defaultSelectedKeys={['2']} />
-            <TableComponent/>
+            <AddIntern/>
+            <InternsTable/>
         </>
     );
 }

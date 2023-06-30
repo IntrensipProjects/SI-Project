@@ -66,7 +66,7 @@ input[type="text"] {
 
 .btn-login {
     display: block;
-    width: 96%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     background-color: #455297;
@@ -87,7 +87,6 @@ input[type="text"] {
     margin-left: 60px;
 }
 a{
-    margin-left: 0px;
     text-decoration: underline;
     color: #455297;
     cursor: pointer;
