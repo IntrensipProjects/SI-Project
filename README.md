@@ -64,7 +64,25 @@ Spring Boot Actuator et Eureka Discovery Client
 <img  src="Images/services.png"> <br>
 <img  width="412" src="Images/Eureka.png"> <br>
 
-<h2>Développement du Frontend:</h2>
+<h2>Développement du Frontend:(Zoom: 80%)</h2>
+
+### Les composants et les pages créés dans React : 
+
+<img  src="Images/fr.png"> <br>
+
+### Exemples des pages créées: 
+
+<img  src="Images/1.png"> <br>
+<img  src="Images/2.png"> <br>
+<img  src="Images/3.png"> <br>
+<img  src="Images/4.png"> <br>
+<img  src="Images/4.1.png"> <br>
+<img  src="Images/5.png"> <br>
+
+
+
+
+
 
 
 
