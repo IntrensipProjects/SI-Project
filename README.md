@@ -1,4 +1,4 @@
-# Développement d'un Système d'information (SI) pour la gestion d'entreprise :   "HGS SYSTEM"
+# Développement d'un Système d'information (SI) pour la gestion de l'entreprise HGS Planet :   "HGS SYSTEM"
 
 ### Besoins fonctionnels :
 les besoins fonctionnels que Le SI doit satisfaire, nous pouvons les résumer comme suit :
