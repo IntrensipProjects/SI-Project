@@ -45,9 +45,11 @@ Pour les getters et les setters: Lombok.
 
 Pour créer une application web spring MVC: Spring Web et Rest Repositories.
 
-Pour le SQL: Spring Data JPA et H2 DATABASE. 
+Pour le SQL: Spring Data JPA , H2 DATABASE(pour les tests) et puis mySQL server. 
 
 Pour faire le monitoring des micro-services: Spring Boot Actuator.
+
+Pour créer la docummentation 'swagger' : SpringDoc OpenAPI UI
 
 Pour Spring Cloud Discovery: Eureka Discovery Client.
 
@@ -78,6 +80,7 @@ Spring Boot Actuator et Eureka Discovery Client
 <img  src="Images/4.png"> <br>
 <img  src="Images/4.1.png"> <br>
 <img  src="Images/5.png"> <br>
+<img  src="Images/5.1.png"> <br>
 
 
 
