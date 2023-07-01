@@ -68,7 +68,7 @@ Spring Boot Actuator et Eureka Discovery Client
 
 <img   src="Images/Eureka.png"> <br>
 
-<h2>Développement du Frontend:(Zoom: 80%)</h2>
+<h2>Développement du Frontend:(Zoom: 80%) ----> localhost :3000 </h2>
 
 ### Les composants et les pages créés dans React : 
 
@@ -87,7 +87,7 @@ Spring Boot Actuator et Eureka Discovery Client
 
 ## Erreurs:
 
-Porblèmes dans le serveur pour appeler l'API dans le frontend avec axios dans les pages suivantes:
+Problèmes dans le serveur pour appeler l'API dans le frontend avec axios dans les pages suivantes:
 
 Login,SignUp et stagiares(Interns) 
 
