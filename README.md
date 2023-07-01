@@ -12,13 +12,17 @@ o La gestion des prêts financiers
 Créer une application basée sur une architecture micro-service qui permet de gérer les factures 
 contenant des produits et appartenant à un client.
 <h2>Technologies utilisés dans le projet:</h2>
+
  ### Languages:
+ 
   Jakarta EE : pour le bachend 
 
   ReactJS(framework de JavaScript) et la bibliothèque antd : pour le frontend
+  
   CSS et la bibliothèque Bootstrap : pour le style
 
   ### Design UI/UX:
+  
   Utilisation de Figma 
 
   ### Outils de versionning et collaboration:
@@ -60,7 +64,7 @@ Spring Boot Actuator et Eureka Discovery Client
 
 
 ###les micro-services créés:
-<img  width="412" src="Images/services.png"> <br>
+<img  src="Images/services.png"> <br>
 <img  width="412" src="Images/Eureka.png"> <br>
 
 <h2>Développement du Frontend:</h2>
