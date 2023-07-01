@@ -79,6 +79,7 @@ Spring Boot Actuator et Eureka Discovery Client
 <img  src="Images/1.png"> <br>
 <img  src="Images/2.png"> <br>
 <img  src="Images/3.png"> <br>
+<img  src="Images/7.jpg"> <br>
 <img  src="Images/4.png"> <br>
 <img  src="Images/4.1.png"> <br>
 <img  src="Images/5.png"> <br>
