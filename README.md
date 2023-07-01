@@ -8,9 +8,6 @@ les besoins fonctionnels que Le SI doit satisfaire, nous pouvons les résumer co
 - La gestion des documents (certificat de travail, bulletin de paie)
 - La gestion des prêts financiers
 
-
-Créer une application basée sur une architecture micro-service qui permet de gérer les factures 
-contenant des produits et appartenant à un client.
 <h2>Technologies utilisés dans le projet:</h2>
 
  ### Languages:
