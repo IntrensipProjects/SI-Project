@@ -1,12 +1,12 @@
 # Développement d'un Système d'information (SI) pour la gestion d'entreprise 
 ### Besoins fonctionnels :
 les besoins fonctionnels que Le SI doit satisfaire, nous pouvons les résumer comme suit :
-o   L’authentification des utilisateurs
-o   La gestion des employés
-o   La gestion des stagiaires
-o   La gestion des congés
-o La gestion des documents (certificat de travail, bulletin de paie)
-o La gestion des prêts financiers
+-  L’authentification des utilisateurs
+-  La gestion des employés
+-  La gestion des stagiaires
+-   La gestion des congés
+- La gestion des documents (certificat de travail, bulletin de paie)
+- La gestion des prêts financiers
 
 
 Créer une application basée sur une architecture micro-service qui permet de gérer les factures 
