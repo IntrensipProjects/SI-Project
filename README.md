@@ -85,7 +85,7 @@ Spring Boot Actuator et Eureka Discovery Client
 <img  src="Images/5.png"> <br>
 <img  src="Images/6.png"> <br>
 
-##Erreurs:
+## Erreurs:
 
 Porblèmes dans le serveur pour appeler l'API dans le frontend avec axios dans les pages suivantes:
 
