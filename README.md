@@ -1,4 +1,5 @@
-# Développement d'un Système d'information (SI) pour la gestion d'entreprise 
+# Développement d'un Système d'information (SI) pour la gestion d'entreprise :   "HGS SYSTEM"
+
 ### Besoins fonctionnels :
 les besoins fonctionnels que Le SI doit satisfaire, nous pouvons les résumer comme suit :
 -  L’authentification des utilisateurs
