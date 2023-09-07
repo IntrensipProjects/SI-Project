@@ -21,7 +21,7 @@ public class Stagiaire {
     private Long id;
     private String nom;
     private String email;
-    private Date dateNaissance;
+    private String dateNaissance;
     private String CNE;
     private String adresse;
     private String nomUniversite;

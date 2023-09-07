@@ -26,7 +26,7 @@ public class UserServiceApplication {
                     List.of(
                             User.builder().nomComplet("Emmanuel Babile")
                                     .email("e.babile@mundiapolis.ma").password("emmanuel")
-                                    .tel("0633445566").typeUser("admin").build()
+                                    .tel("0633445566").jobTitle("CHRO").build()
 
                     )
             );

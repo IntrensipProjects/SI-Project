@@ -10,81 +10,37 @@ function InternsTable () {
     const [totalInterns, setTotalInterns] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(false);
-    const [interns, setInterns] = useState([
-        {
-            key: '1',
-            nom: 'Salma Brahimi',
-            dateDeNaissance:'07-01-2000',
-            adresse:'Casablanca',
-            email:'salma@gmail.com',
-            nomUniversite:'Mundiapolis',
-            niveauUniv:'2AINFO',
-            CNE:'BA2244',
-            durationStage:'3 mois',
-            conventionStage:'file1.pdf'
-        },
-        {
-            key: '2',
-            nom: 'Omar Mouti',
-            dateDeNaissance:'07-01-2000',
-            adresse:'Casablanca',
-            email:'omar@gmail.com',
-            nomUniversite:'Mundiapolis',
-            niveauUniv:'2AINFO',
-            CNE:'BA2244',
-            durationStage:'3 mois',
-            conventionStage:'file2.pdf'
-        },
-        {
-            key: '3',
-            nom: 'Nouhaila OHAPOUNE',
-            dateDeNaissance:'07-01-2000',
-            adresse:'Casablanca',
-            email:'nouhaila@gmail.com',
-            nomUniversite:'Mundiapolis',
-            niveauUniv:'2AINFO',
-            CNE:'BA2244',
-            durationStage:'3 mois',
-            conventionStage:'file3.pdf'
-        },
-        {
-            key: '4',
-            nom: 'Imane sara',
-            dateDeNaissance:'07-01-2000',
-            adresse:'Casablanca',
-            email:'imane@gmail.com',
-            nomUniversite:'Mundiapolis',
-            niveauUniv:'2AINFO',
-            CNE:'BA2244',
-            durationStage:'3 mois',
-            conventionStage:'file4.pdf'
-        },
-        {
-            key: '4',
-            nom: 'Ali Omar',
-            dateDeNaissance:'07-01-2000',
-            adresse:'Casablanca',
-            email:'ali@gmail.com',
-            nomUniversite:'Mundiapolis',
-            niveauUniv:'3AINFO',
-            CNE:'BA2244',
-            durationStage:'6 mois',
-            conventionStage:'file5.pdf'
-        },
-
-]);
+    const [interns, setInterns] = useState([]);
 
 
+    useEffect(() => {
+        // Fetch employees data from the backend API using Axios
+        fetchInterns().then(r => 'ERROR!');
+    }, []);
     const fetchInterns = async () => {
         try {
             setLoading(true);
-            const response1 = await axios.get("http://localhost:8888/STAGIAIRE-SERVICE/stagiaires");
-            const data1 = response1.data; // Assuming the API response has the list of interns in the 'data' property
-            setInterns(data1);
-            setTotalInterns(data1.length);
+            const response = await axios.get("http://localhost:8888/STAGIAIRE-SERVICE/stagiaires");
+            const data = response.data; // Assuming the API response has the list of interns in the 'data' property
+            setInterns(data);
+            setTotalInterns(data.length);
             setLoading(false);
         } catch (error) {
             console.error("Error fetching interns:", error);
+        }
+    };
+
+    const handleDelete = async (id) => {
+        try {
+            // Make a DELETE request to the backend to delete the employee
+            await axios.delete(`http://localhost:8888/STAGIAIRE-SERVICE/stagiaires/${id}`);
+            setInterns((prevDataSource) =>
+                prevDataSource.filter((record) => record.key !== id)
+            );
+
+            console.log("Deleting intern with key:", id);
+        } catch (error) {
+            console.error("Error deleting intern:", error);
         }
     };
     const columns = [
@@ -140,8 +96,8 @@ function InternsTable () {
             key: 'action',
             render: (_, record) => (
                 <Popconfirm
-                    title="Are you sure you want to delete this intern?"
-                    onConfirm={() => handleDelete(record.key)}
+                    title={`Are you sure you want to delete intern ${record.nom}?`}
+                    onConfirm={() => handleDelete(record.id)}
                     okText="Yes"
                     cancelText="No"
                 >
@@ -151,19 +107,6 @@ function InternsTable () {
         },
     ];
 
-    const handleDelete = async (id) => {
-        try {
-            // Make a DELETE request to the backend to delete the employee
-            await axios.delete(`http://localhost:8888/STAGIAIRE-SERVICE/stagiares/${id}`);
-            setInterns((prevDataSource) =>
-                prevDataSource.filter((record) => record.key !== id)
-            );
-
-            console.log("Deleting intern with key:", id);
-        } catch (error) {
-            console.error("Error deleting intern:", error);
-        }
-    };
     const handlePageChange = (page, pageSize) => {
         setCurrentPage(page);
         setPageSize(pageSize);

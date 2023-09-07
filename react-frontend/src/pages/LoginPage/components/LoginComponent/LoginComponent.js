@@ -1,14 +1,18 @@
 import './LoginComponent.css';
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import axios from 'axios';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from "../../../../assets/images/logo.png";
-import { Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {message} from "antd";
+import {UserContext} from "../../UserContext";
 function LoginComponent(){
+    const navigate = useNavigate();
+    const { setUserData } = useContext(UserContext);
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [nomComplet, setNomComplet] = useState(""); // Initialize with user data
+    const [jobTitle, setJobTitle] = useState("");
     const field={
         WebkitAppearance: 'none',
         MozAppearance: 'none',
@@ -20,14 +24,22 @@ function LoginComponent(){
 
     const onSubmit = async (e) => {
         e.preventDefault();
-            const response = await axios.post(
-                'http://localhost:8888/USER-SERVICE/users',
-                { email, password }
-            ).then((response) => {
-            message.success('Login successful!');
-            return <Link to="/home" />;
-            })
-            .catch ((err) => {
+        try {
+            const response = await axios.get('http://localhost:8888/USER-SERVICE/users', { email, password,nomComplet,jobTitle });
+            // Check if the email and password exist in the API response
+            if (response.data.some(user => user.email === email && user.password === password)) {
+                const user = response.data.find(u => u.email === email && u.password === password);
+                setUserData({
+                    nomComplet: user.nomComplet,
+                    jobTitle: user.jobTitle,
+                });
+                message.success('Login successful!');
+                navigate("/home");
+            } else {
+                message.error('Invalid email or password.');
+            }
+
+        } catch (err) {
             if (!err?.response) {
                 message.error('No Server Response');
             } else if (err.response?.status === 400) {
@@ -37,10 +49,11 @@ function LoginComponent(){
             } else {
                 message.error('Login Failed');
             }
-            });
+        }
         setEmail("");
         setPassword("");
     };
+
 
 
     const togglePasswordVisibility = () => {
@@ -49,7 +62,7 @@ function LoginComponent(){
 
     return(
         <div className="login-container">
-            <form onSubmit={onSubmit} className="login-form">
+            <form  className="login-form">
                     <img src={logo} alt="Logo" className="logo" />
                 <div className="email-input">
                     <input
@@ -78,10 +91,8 @@ function LoginComponent(){
                 <div className="forgot-password">Forgot my password?</div>
                 <br/>
 
-                {/*disabled={!email || !password}*/}
-                <Link to="/home">
-                    <button type="submit"   className="btn-login">Login</button>
-                </Link>
+                    <button type="submit" disabled={!email || !password}  onClick={onSubmit} className="btn-login">Login</button>
+
                     <div className="signUp"><strong>No Account?</strong> <Link to="/signup" style={linkofpage}>Signup</Link>
                     </div>
                 </form>
