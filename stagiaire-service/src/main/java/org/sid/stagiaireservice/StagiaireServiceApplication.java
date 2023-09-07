@@ -31,32 +31,32 @@ public class StagiaireServiceApplication {
                     List.of(
                             Stagiaire.builder().nom("Martin Renard").
                                     email("m.renard@yahoo.com").
-                                    //dateNaissance().
+                                    dateNaissance("07/04/2000").
                                     adresse("Sidi Maârrouf, Casablanca").
                                     CNE("ZR34ODB").
                                     nomUniversite("EMSI").
                                     niveauUniv("1ACP").
                                     durationStage("1 mois").
-                                    conventionStage("").build(),
+                                    conventionStage("A.pdf").build(),
 
                             Stagiaire.builder().nom("Ayoub Hassan").
                                     email("ayoubhassan121@gmail.com").
-                                    //dateNaissance().
+                                    dateNaissance("07/07/2000").
                                             adresse("Derb Ghallef, Casablanca").
                                     CNE("FR437Z4").
                                     nomUniversite("ISGA").
                                     niveauUniv("2ACI").
-                                    durationStage("2 mois").
-                                    conventionStage("").build(),
+                                    durationStage("4 mois").
+                                    conventionStage("B.pdf").build(),
 
                             Stagiaire.builder().nom("Olivier Descartes").
                                     email("olidescartes@icloud.com").
-                                    //dateNaissance().
+                                    dateNaissance("07/09/2000").
                                     adresse("Belvédère").
                                     CNE("HU492GT").
                                     nomUniversite("HEM").
                                     niveauUniv("1ACI").
-                                    conventionStage("").
+                                    conventionStage("C.pdf").
                                     durationStage("2 mois").build()
                     )
             );

@@ -5,6 +5,7 @@ import InternsTable from "./components/InternsTable/InternsTable";
 import SearchBarComponent from "../../components/SearchBarComponent/SearchBarComponent";
 
 function InternsPage(){
+
     return(
         <>
             <HeaderComponent/>

@@ -16,7 +16,7 @@ h1 {
     position: absolute;
     width: 340px;
     height: 58px;
-    left: 500px;
+    left: 600px;
     top: 160px;
     font-family: 'Lato';
     font-style: normal;
@@ -32,7 +32,7 @@ img{
     position: absolute;
     width: 48px;
     height: 49px;
-    left: 870px;
+    left: 950px;
     top: 170px;
 }
 
@@ -40,7 +40,7 @@ p {
     position: absolute;
     width: 482px;
     height: 31px;
-    left: 450px;
+    left: 540px;
     top: 250px;
 
     font-family: 'Lato';
@@ -58,7 +58,7 @@ p {
     display: block;
     width: 381px;
     height: 53px;
-    left: 490px;
+    left: 590px;
     top: 360px;
     padding: 10px;
     font-size: 16px;

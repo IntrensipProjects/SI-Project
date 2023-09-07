@@ -17,7 +17,7 @@ public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     public String nomComplet;
-    public String typeUser;
+    public String jobTitle;
     public String email;
     public String password;
     public  String tel;

@@ -1,13 +1,15 @@
 import "./HeaderComponent.css";
-import React, {useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Avatar, Button, Col, Dropdown, Menu, message, Row} from "antd";
 import {LogoutOutlined, MoreOutlined, UserOutlined} from "@ant-design/icons";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {UserContext} from "../../pages/LoginPage/UserContext";
 
 
 function HeaderComponent() {
 
     const navigate = useNavigate();
+    const { nomComplet, jobTitle } = useContext(UserContext);
 
     const success = () => {
         message.open({
@@ -31,18 +33,19 @@ function HeaderComponent() {
         items,
         onClick: handleLogout,
     };
+
     return (
         <div className="header-container">
             <Row>
                 <Col>
-                    <h1>HGS SYSTEM</h1>
+                   <Link to="/home"><h1>HGS SYSTEM</h1></Link>
                 </Col>
                 <Col className="text-end">
                     <Avatar size={43} icon={<UserOutlined/>} style={{backgroundColor: "white", color: "black"}}/>
                 </Col>
                 <div className="nom">
-                    <h6>Nouhaila Ohapoune</h6>
-                    Admin
+                    <h6>{nomComplet}</h6>
+                    {jobTitle}
                 </div>
                 <Dropdown menu={menuProps}>
                     <MoreOutlined className="icon"/>

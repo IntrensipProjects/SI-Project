@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./SignupComponent.css";
-import {Link} from "react-router-dom";
+import {Link ,useNavigate} from "react-router-dom";
 import {FaEye, FaEyeSlash} from "react-icons/fa";
 import logo from '../../../../assets/images/logo.png';
 import {message} from "antd";
 
 function SignupComponent(){
-    const [showPassword, setShowPassword] = useState(false);
-    const [fullName, setFullName] = useState("");
+    const navigate = useNavigate();
+    const [nomComplet, setNomComplet] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [jobTitle, setJobTitle] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    const [tel, setTel] = useState("");
 
     const thelink={
         marginLeft:'8px'
@@ -23,33 +23,34 @@ function SignupComponent(){
 
         try {
             const response = await axios.post('http://localhost:8888/USER-SERVICE/users', {
-                fullName,
+                nomComplet,
                 email,
                 password,
                 jobTitle,
-                phoneNumber
+                tel
             });
 
             // Handle the response from the API
             console.log(response.data);
 
             message.info("Sign up successful!!")
-            // Perform necessary actions after successful signup
-            console.log('Signup successful');
+            // Navigate to /congrats after successful signup
+            navigate('/congrats');
 
-            return <Link to="/congrats"/>;
-
-                    }
-        catch (error) {
+        } catch (error) {
             console.error(error);
         }
-    // Reset form fields
-    setFullName("");
-    setEmail("");
-    setPassword("");
-    setJobTitle("");
-    setPhoneNumber("");
-};
+        // Reset form fields
+        setNomComplet("");
+        setEmail("");
+        setPassword("");
+        setJobTitle("");
+        setTel("");
+    };
+
+
+
+
     return(
         <>
             <img
@@ -58,7 +59,7 @@ function SignupComponent(){
                 alt="Logo"
             />
             <div className="signup-container">
-                <form onSubmit={handleSubmit} className="signup-form">
+                <form className="signup-form">
                     <div>
                     <h3>Welcome to HGS System
      where you can manage all human resources
@@ -68,10 +69,10 @@ function SignupComponent(){
                     <div className="field">
                     <input
                         type="text"
-                        id="fullName"
+                        id="nomComplet"
                         placeholder= "Enter your full name "
-                        value={fullName}
-                        onChange={(event) => setFullName(event.target.value)}
+                        value={nomComplet}
+                        onChange={(event) => setNomComplet(event.target.value)}
                         required
                     />
                     </div>
@@ -112,19 +113,19 @@ function SignupComponent(){
                     <div className="field">
                     <input
                         type="text"
-                        id="phoneNumber"
+                        id="tel"
                         placeholder= "Enter your phone number "
-                        value={phoneNumber}
-                        onChange={(event) => setPhoneNumber(event.target.value)}
+                        value={tel}
+                        onChange={(event) => setTel(event.target.value)}
                         required
                     />
                     </div>
 
-                    <Link to="/congrats">
-                        {/*disabled={!email || !password || !fullName || !jobTitle ||!phoneNumber}*/}
                     <button type="submit"
-                            className="btn-signup">NEXT</button>
-                    </Link>
+                            disabled={!email || !password || !nomComplet || !jobTitle ||!tel}
+                            className="btn-signup"
+                    onClick={handleSubmit} >NEXT</button>
+
                     <div className="login"><strong>Already have an account?</strong> <Link to="/login" style={thelink}>Login</Link></div>
             </form>
                 </div>

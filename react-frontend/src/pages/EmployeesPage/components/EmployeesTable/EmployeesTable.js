@@ -144,7 +144,6 @@ const EmployeesTable = ({dataSource}) => {
     const handleClear = () => {
         setSearchTerm("");
         fetchEmployees().then(r => 'ERROR');
-        // setEmployees(data);
     };
 
 
