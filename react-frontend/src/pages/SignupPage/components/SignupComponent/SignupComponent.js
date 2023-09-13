@@ -126,7 +126,7 @@ function SignupComponent(){
                             className="btn-signup"
                     onClick={handleSubmit} >NEXT</button>
 
-                    <div className="login"><strong>Already have an account?</strong> <Link to="/login" style={thelink}>Login</Link></div>
+                    <div className="login"><strong>Already have an account?</strong> <Link to="/" style={thelink}>Login</Link></div>
             </form>
                 </div>
         </>

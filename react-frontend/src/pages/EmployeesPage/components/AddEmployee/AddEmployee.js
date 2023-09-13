@@ -7,8 +7,6 @@ import axios from 'axios';
 function AddEmployee() {
     const [form] = Form.useForm();
     const [visible, setVisible] = useState(false);
-    const [modified, setModified] = useState(false);
-    const [visiblePopUp, setVisiblePopUp] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [fileList, setFileList] = useState([]);
     let formData= new FormData();
@@ -69,16 +67,14 @@ function AddEmployee() {
             onCancel={onCancel}
             width="1000px"
             confirmLoading={confirmLoading}
-
         >
             <Form
                 form={form}
                 layout="vertical"
                 name="control-ref"
                 className="new-employee"
-                onChange={() => setModified(true)}
-
             >
+
                 <div className="row">
                     <div className="col-md-6">
                         <Form.Item

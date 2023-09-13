@@ -39,8 +39,44 @@ const options = {
   },
 };
 
+const options2 = {
+  indexAxis: 'y',
+  elements: {
+    bar: {
+      borderWidth: 2,
+    },
+  },
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'right',
+    },
+    title: {
+      display: true,
+      text: 'Number of employees',
+    },
+  },
+};
+
 const DashboardComponent =() => {
   const [data, setData] = useState({
+    labels:['20','15', '10', '5', '0'],
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data:[],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(25, 90, 13, 0.5)',
+      },
+      {
+        label: 'Dataset 2',
+        data:[],
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  });
+  const [data1, setData1] = useState({
     labels:['20','15', '10', '5', '0'],
     datasets: [
       {
@@ -97,7 +133,45 @@ const DashboardComponent =() => {
         console.log("error", e)
       })
     }
-
+    const fetchData1= async()=> {
+      const url1 = 'http://localhost:8888/EMPLOYEE-SERVICE/employees'
+      const labelSet = []
+      const dataSet3 = [];
+      const dataSet4 = [];
+      await fetch(url1).then((data1)=> {
+        console.log("Api data", data1)
+        const res1 = data1.json();
+        return res1
+      }).then((res1) => {
+        console.log("ressss", res1)
+        for (const val1 of res1) {
+          dataSet3.push(val1.id);
+          dataSet4.push(val1.postId)
+          // labelSet.push(val.name)
+        }
+        setData1({
+          labels:['20','15', '10', '5', '0'],
+          datasets: [
+            {
+              label: 'Dataset ID',
+              data:dataSet3,
+              borderColor: 'rgb(255, 99, 132)',
+              backgroundColor: 'rgba(99, 132, 0.5)',
+            },
+            {
+              label: 'Dataset ID2',
+              data:dataSet4,
+              borderColor: 'rgb(53, 162, 235)',
+              backgroundColor: 'rgba(53, 235, 0.5)',
+            },
+          ],
+        })
+        console.log("arrData", dataSet3, dataSet4)
+      }).catch(e => {
+        console.log("error", e)
+      })
+    }
+    fetchData1();
     fetchData();
   },[])
 
@@ -108,7 +182,7 @@ const DashboardComponent =() => {
           console.log("data", data)
         }
         <Bar className="dashboard" data={data} options={options}/>
-
+        <Bar className="dash" data={data1} options={options2}/>
     </div>
   )
 }

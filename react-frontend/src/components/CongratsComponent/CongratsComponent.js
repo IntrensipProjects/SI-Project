@@ -9,7 +9,7 @@ function CongratsComponent() {
               <h1>Congratulations!</h1>
               <img src={congrats} alt="logo" />
           <p>Your  account has successfully been set up</p>
-          <Link to="/login">
+          <Link to="/">
           <button type="submit"
                   className="btn-start">Start now</button>
           </Link>
