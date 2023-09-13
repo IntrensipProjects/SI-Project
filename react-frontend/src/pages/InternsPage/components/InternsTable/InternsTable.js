@@ -1,12 +1,12 @@
 import "./InternsTable.css";
 import React, {useEffect, useState} from "react";
-import {Button, Popconfirm, Table} from "antd";
+import {Button, message, Popconfirm, Table} from "antd";
 import SearchBarComponent from "../../../../components/SearchBarComponent/SearchBarComponent";
 import axios from "axios";
 
 function InternsTable () {
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(5);
+    const [pageSize, setPageSize] = useState(4);
     const [totalInterns, setTotalInterns] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ function InternsTable () {
             setInterns((prevDataSource) =>
                 prevDataSource.filter((record) => record.key !== id)
             );
-
+            message.success('Intern deleted successfully!');
             console.log("Deleting intern with key:", id);
         } catch (error) {
             console.error("Error deleting intern:", error);
@@ -165,7 +165,7 @@ function InternsTable () {
                         total: totalInterns,
                         onChange: handlePageChange,
                         showSizeChanger: true, // To enable page size selection
-                        pageSizeOptions: ['5', '10', '20'], // Available page sizes
+                        pageSizeOptions: ['4', '8', '12'], // Available page sizes
                     }}
                 />
             </div>

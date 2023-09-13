@@ -4,7 +4,7 @@ export default {
   }),
   employees: Object.freeze({ path: '/employees' }),
   interns: Object.freeze({ path: '/interns' }),
-  absences: Object.freeze({ path: '/absences' }),
+  absences: Object.freeze({ path: '/holidays' }),
   loanManagement: Object.freeze({
     path: '/loanManagement',
   }),

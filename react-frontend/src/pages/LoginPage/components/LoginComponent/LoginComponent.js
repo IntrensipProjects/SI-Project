@@ -33,6 +33,7 @@ function LoginComponent(){
                     nomComplet: user.nomComplet,
                     jobTitle: user.jobTitle,
                 });
+                console.log(user.nomComplet);
                 message.success('Login successful!');
                 navigate("/home");
             } else {

@@ -10,7 +10,7 @@ function HeaderComponent() {
 
     const navigate = useNavigate();
     const { nomComplet, jobTitle } = useContext(UserContext);
-
+    console.log(nomComplet);
     const success = () => {
         message.open({
             type: 'success',
@@ -20,7 +20,7 @@ function HeaderComponent() {
     const handleLogout = () => {
         success(); // Call the success function
         setTimeout(() => {
-            navigate("/login"); // Redirect to login component after 1.5s
+            navigate("/"); // Redirect to login component after 1.5s
         }, 1500);
     };
 

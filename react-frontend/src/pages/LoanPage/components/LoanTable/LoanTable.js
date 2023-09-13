@@ -1,95 +1,68 @@
-import "./EmployeesTable.css";
 import React, {useEffect, useState} from "react";
+import axios from "axios";
 import {Button, message, Popconfirm, Table} from "antd";
 import SearchBarComponent from "../../../../components/SearchBarComponent/SearchBarComponent";
-import axios from "axios";
 
-
-const EmployeesTable = ({dataSource}) => {
+function LoanTable() {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(5);
     const [searchTerm, setSearchTerm] = useState('');
-    const [totalEmployees, setTotalEmployees] = useState(0);
-    const [employees, setEmployees] = useState([]);
+    const [totalLoans, setTotalLoans] = useState(0);
+    const [loans, setLoans] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         // Fetch employees data from the backend API using Axios
-        fetchEmployees().then(r => 'ERROR!');
+        fetchLoans().then(r => 'ERROR!');
     }, []);
 
-    const fetchEmployees = async () => {
+    const fetchLoans = async () => {
         try {
             setLoading(true);
-            const response = await axios.get("http://localhost:8888/EMPLOYEE-SERVICE/employees");
+            const response = await axios.get("http://localhost:8888/PRET-SERVICE/prets");
             const data = response.data; // Assuming the API response has the list of employees in the 'data' property
-            setEmployees(data);
-            setTotalEmployees(data.length);
+            setLoans(data);
+            setTotalLoans(data.length);
             setLoading(false);
         } catch (error) {
-            console.error("Error fetching employees:", error);
+            console.error("Error fetching loans:", error);
         }
     };
 
     const handleDelete =async (id) => {
         try {
             // Make a DELETE request to the backend to delete the employee
-            await axios.delete(`http://localhost:8888/EMPLOYEE-SERVICE/employees/${id}`);
-            setEmployees((prevDataSource) =>
+            await axios.delete(`http://localhost:8888/PRET-SERVICE/prets/${id}`);
+            setLoans((prevDataSource) =>
                 prevDataSource.filter((record) => record.key !== id)
             );
-            message.success('Employee deleted successfully!');
-            console.log("Deleting employee with key:", id);
+            message.success('Loan request deleted successfully!');
+            console.log("Deleting loan with key:", id);
         } catch (error) {
-            console.error("Error deleting employee:", error);
+            console.error("Error deleting loans:", error);
         }
     };
 
     const columns = [
         {
-            title: 'Full Name',
-            dataIndex: 'nomComplet',
-            key: 'nomComplet',
+            title: 'Loan amount',
+            dataIndex: 'montant',
+            key: 'montant',
         },
         {
-            title: 'Birthday Date',
-            dataIndex: 'dateDeNaissance',
-            key: 'dateDeNaissance',
+            title: 'Borrowing date',
+            dataIndex: 'dateEmprunt',
+            key: 'dateEmprunt',
         },
         {
-            title: 'Address',
-            dataIndex: 'adresse',
-            key: 'adresse',
+            title: 'Reimbursement date',
+            dataIndex: 'dateRembouserment',
+            key: 'dateRembouserment',
         },
         {
-            title: 'Email',
-            dataIndex: 'email',
-            key: 'email',
-        },
-        {
-            title: 'Phone Number',
-            dataIndex: 'tel',
-            key: 'tel',
-        },
-        {
-            title: 'Position Held',
-            dataIndex: 'positionHeld',
-            key: 'positionHeld',
-        },
-        {
-            title: 'CNE',
-            dataIndex: 'cne',
-            key: 'cne',
-        },
-        {
-            title: 'Hiring Date',
-            dataIndex: 'dateEmbauche',
-            key: 'dateEmbauche',
-        },
-        {
-            title: 'Contract',
-            dataIndex: 'contract',
-            key: 'contract',
+            title: 'Loan Request Status',
+            dataIndex: 'etatDemandePret',
+            key: 'etatDemandePret',
         },
         {
             title: 'Actions',
@@ -98,7 +71,7 @@ const EmployeesTable = ({dataSource}) => {
             key: 'action',
             render: (_, record) => (
                 <Popconfirm
-                    title={`Are you sure you want to delete employee ${record.nomComplet}?`}
+                    title={`Are you sure you want to delete loan request with Id:${record.id}?`}
                     onConfirm={() => handleDelete(record.id)}
                     okText="Yes"
                     cancelText="No"
@@ -109,33 +82,24 @@ const EmployeesTable = ({dataSource}) => {
         },
     ];
 
-    const handlePageChange = (page, pageSize) => {
-        setCurrentPage(page);
-        setPageSize(pageSize);
-    };
-
     const handleSearch = (searchTerm) => {
         setSearchTerm(searchTerm);
-
+        const searchedValue = parseFloat(searchTerm);
         // Filter the dataSource based on the search term
-        const filteredData = searchTerm
-            ? employees.filter((employee) =>
-                employee.nomComplet.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            : employees;
+        const filteredData = loans.filter((loan) => loan.montant === searchedValue);
 
-        setTotalEmployees(filteredData.length);
-        setEmployees(filteredData);
+        setTotalLoans(filteredData.length);
+        setLoans(filteredData);
         // Make API request to fetch filtered data from the backend
-        axios.get("http://localhost:8888/EMPLOYEE-SERVICE/employees", {
+        axios.get("http://localhost:8888/PRET-SERVICE/prets", {
             params: {
                 searchTerm: filteredData
             }
         })
             .then((response) => {
                 const filteredDataFromAPI = response.data;
-                setEmployees(filteredDataFromAPI);
-                setTotalEmployees(filteredDataFromAPI.length);
+                setLoans(filteredDataFromAPI);
+                setTotalLoans(filteredDataFromAPI.length);
             })
             .catch((error) => {
                 console.error("Error fetching filtered data:", error);
@@ -144,14 +108,19 @@ const EmployeesTable = ({dataSource}) => {
 
     const handleClear = () => {
         setSearchTerm("");
-        fetchEmployees().then(r => 'ERROR');
+        fetchLoans().then(r => 'ERROR');
     };
 
 
-  return (
+    const handlePageChange = (page, pageSize) => {
+        setCurrentPage(page);
+        setPageSize(pageSize);
+    };
+
+    return (
       <>
-          <h2>Employees</h2>
-          <SearchBarComponent placeholder="Search for an employee..."
+          <h2>Loan Management</h2>
+          <SearchBarComponent placeholder="Search for a loan amount ..."
                               searchTerm={searchTerm}
                               onSearch={handleSearch}
                               onClear={handleClear}
@@ -160,11 +129,11 @@ const EmployeesTable = ({dataSource}) => {
               <Table
                   loading={loading}
                   columns={columns}
-                  dataSource={employees}
+                  dataSource={loans}
                   pagination={{
                       current: currentPage,
                       pageSize: pageSize,
-                      total: totalEmployees,
+                      total: totalLoans,
                       onChange: handlePageChange,
                       showSizeChanger: true, // To enable page size selection
                       pageSizeOptions: ['5', '10', '20'], // Available page sizes
@@ -175,4 +144,4 @@ const EmployeesTable = ({dataSource}) => {
   );
 };
 
-export default EmployeesTable;
+export default LoanTable;
